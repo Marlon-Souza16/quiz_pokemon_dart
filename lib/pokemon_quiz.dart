@@ -72,7 +72,7 @@ class _PokemonQuizScreenState extends State<PokemonQuizScreen> {
             builder: (BuildContext context) {
               return AlertDialog(
                 title: Text("Fim do Quiz"),
-                content: Text("Você acertou $correctAnswers de $totalQuestions perguntas."),
+                content: Text("Parabéns você acertou $correctAnswers de $totalQuestions perguntas."),
                 actions: [
                   ElevatedButton(
                     onPressed: () {
