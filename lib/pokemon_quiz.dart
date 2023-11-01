@@ -65,7 +65,19 @@ class _PokemonQuizScreenState extends State<PokemonQuizScreen> {
           ),
         );
 
-        if (totalQuestions % 10 == 0) {
+
+      });
+    } else {
+      // Exibir uma mensagem de erro
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Você selecionou o pokemon errado !!!"),
+          backgroundColor:  Colors.red,
+        ),
+      );
+      totalQuestions++;
+    }
+            if (totalQuestions % 10 == 0) {
           // Mostrar um diálogo informando sobre o reinício do quiz
           showDialog(
             context: context,
@@ -86,17 +98,6 @@ class _PokemonQuizScreenState extends State<PokemonQuizScreen> {
             },
           );
         }
-      });
-    } else {
-      // Exibir uma mensagem de erro
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Você selecionou o pokemon errado !!!"),
-          backgroundColor:  Colors.red,
-        ),
-      );
-      totalQuestions++;
-    }
 
     choosePokemon();
   }
