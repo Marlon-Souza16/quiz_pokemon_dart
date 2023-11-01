@@ -60,7 +60,8 @@ class _PokemonQuizScreenState extends State<PokemonQuizScreen> {
         // Exibir uma mensagem de acerto
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text("Acerto!"),
+            content: Text("Parabéns, você selecionou o pokémon correto !!!"),
+            backgroundColor: Colors.green,
           ),
         );
 
@@ -90,7 +91,8 @@ class _PokemonQuizScreenState extends State<PokemonQuizScreen> {
       // Exibir uma mensagem de erro
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text("Erro."),
+          content: Text("Você selecionou o pokemon errado !!!"),
+          backgroundColor:  Colors.red,
         ),
       );
       totalQuestions++;
@@ -102,6 +104,7 @@ class _PokemonQuizScreenState extends State<PokemonQuizScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text("Quiz Pokémon"),
       ),
@@ -134,24 +137,42 @@ class _PokemonQuizScreenState extends State<PokemonQuizScreen> {
             ),
             const SizedBox(height: 20),
             // Botão com o nome do Pokémon correto
-            ElevatedButton(
+          Padding(padding: const EdgeInsets.all(8), child: ElevatedButton(
               onPressed: () => checkAnswer(PokemonsChoose[0].id),
-              child: Text(PokemonsChoose[0].name),
+              child: Text(PokemonsChoose[0].name, style: TextStyle(fontSize: 18)), 
+              style: ElevatedButton.styleFrom(
+                primary: Colors.red,
+                minimumSize: const Size.fromHeight(50)
+              ),
             ),
-            const SizedBox(height: 10), // Espaço entre os botões
+            ),
             // Botões com os nomes dos Pokémon aleatorizados
-            ElevatedButton(
+             Padding(padding: const EdgeInsets.all(8), child: ElevatedButton(
               onPressed: () => checkAnswer(PokemonsChoose[1].id),
-              child: Text(PokemonsChoose[1].name),
+              child: Text(PokemonsChoose[1].name, style: TextStyle(fontSize: 18)), 
+              style: ElevatedButton.styleFrom(
+                primary: Colors.red,
+                minimumSize: const Size.fromHeight(50)
+              ),
             ),
-            ElevatedButton(
+            ),
+             Padding(padding: const EdgeInsets.all(8), child: ElevatedButton(
               onPressed: () => checkAnswer(PokemonsChoose[2].id),
-              child: Text(PokemonsChoose[2].name),
+              child: Text(PokemonsChoose[2].name, style: TextStyle(fontSize: 18)), 
+              style: ElevatedButton.styleFrom(
+                primary: Colors.red,
+                minimumSize: const Size.fromHeight(50)
+              ),
+            )
             ),
-            ElevatedButton(
+            Padding(padding: const EdgeInsets.all(8), child: ElevatedButton(
               onPressed: () => checkAnswer(PokemonsChoose[3].id),
-              child: Text(PokemonsChoose[3].name),
-            ),
+              child: Text(PokemonsChoose[3].name, style: TextStyle(fontSize: 18)), 
+              style: ElevatedButton.styleFrom(
+                primary: Colors.red,
+                minimumSize: const Size.fromHeight(50)
+              ),
+            ),)
           ],
         ),
       ),
